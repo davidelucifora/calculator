@@ -1,0 +1,97 @@
+
+:root {
+--russian-violet: #320e3bff;
+--spanish-violet: #4c2a85ff;
+--glaucous: #6b7fd7ff;
+--blizzard-blue: #bcedf6ff;
+--nyanza: #ddfbd2ff;
+}
+
+body{    
+    font-family: 'Lato', Arial, sans-serif;
+    background-color:var(--russian-violet);
+    color:var(--blizzard-blue);
+    font-weight:300;
+}
+
+#container {
+    display:flex;
+    flex-flow: column wrap;
+    align-items:center;
+
+    
+}
+h1{
+    font-weight:400;
+    font-size:4rem;
+    color:var(--nyanzaa);
+    margin-bottom:0;
+}
+h2{
+
+    margin-bottom:8rem;
+    margin-top:0;
+    font-weight:300;
+    
+}
+
+
+
+#calc-display{
+    color:white;
+    font-size:3rem;
+    text-align:right;
+    color:var(--blizzard-blue);
+    margin-bottom:1rem;
+
+}
+#btn-grid {
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    column-gap:3px;
+    row-gap:3px;
+    height:20rem;
+    width:20rem;
+}
+
+.grid-btn {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:rgba(255, 255, 255, 0.2);
+    border:none;
+    color:var(--blizzard-blue);
+    font-size:1.2em;    
+    transition:0.1s ease-in;
+}
+.grid-btn:hover{
+    background-color:rgba(255, 255, 255, 0.5)
+}
+.grid-span-2{
+    grid-column:1 / span 2
+}
+.calc-btn{
+    background-color:var(--spanish-violet)
+}
+.calc-btn:hover{
+    background-color:rgb(223, 130, 247)
+}
+.delete-btn{
+    background-color:coral;
+}
+.delete-btn:hover{
+    background-color:red;
+}
+#recent-calc{
+    margin-top:1rem;
+}
+h3{
+    font-size:1.5rem;
+    margin-bottom:0.1rem;
+}
+li{
+    list-style:none;
+    font-size:1.2rem;
+    letter-spacing:0.2rem;
+    text-align:left;
+}
