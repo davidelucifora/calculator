@@ -144,4 +144,12 @@ td {
     h2{
         margin-bottom:2rem;
     }
+    #easterEgg{
+        width:200px;
+        height:200px;
+        position:absolute;
+        top: calc(50vh - 200px);
+        left:calc(50vw - 200px);
+    }
+
 }
