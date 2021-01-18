@@ -21,6 +21,11 @@ body{
 
     
 }
+#main-content{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+}
 h1{
     font-weight:400;
     font-size:4rem;
@@ -33,6 +38,10 @@ h2{
     margin-top:0;
     font-weight:300;
     
+}
+
+#calculator{
+    margin:0 20rem 0 2rem;;
 }
 
 #calc-display{
@@ -77,6 +86,11 @@ h2{
 .calc-btn:hover, .equal-btn, .calc-active{
     background-color:rgb(223, 130, 247);
 }
+.easter-egg{
+    background-image:url('marvinImg.png');
+    width:500px;
+    height:500px;
+}
 .equal-btn:hover, .equal-active{
     background-color:green;
 }
@@ -102,4 +116,16 @@ li{
 }
 .btn-disabled {
     background-color:#333
+}
+
+#shortcuts{
+    margin-top:5rem;
+    min-width:10rem;
+    text-align:left;
+    font-size:1.1rem;
+}
+td {
+    padding:0.5rem 3rem 0 0 ;
+    margin-right:2rem;
+    
 }

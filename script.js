@@ -16,7 +16,16 @@ buttons.forEach(btn => {
 //Add Keyboard Support
 document.addEventListener('keydown', keyInput)
 function keyInput(e){
-    e.preventDefault()
+    if (e.key === '/') e.preventDefault()
+    if (e.key === 'Backspace' && display.innerText != '0') {
+        if (display.innerText.length == 1) {
+            display.innerText = 0
+            displayReset = true;}
+        else{
+        display.innerText = display.innerText.toString()
+        .substring(0, display.innerText.length-1)
+    }   
+    }
     
             document.querySelector(`[data-key="${e.key}-key"]`).click()
     }
@@ -142,6 +151,15 @@ function operate(operator){
             
     }
     if (result % 1 != 0) result = result.toFixed(2)
+    if (result === 42) {
+        let easterEgg = document.createElement('div')
+        let contentDiv = document.getElementById('main-content')
+        easterEgg.classList.add('easter-egg')
+        contentDiv.appendChild(easterEgg)
+        setTimeout(function(){
+            contentDiv.removeChild(easterEgg)
+        },300)
+    }
     return result;
 
 }
@@ -182,5 +200,5 @@ function keyPressStyle(buttonPressed, activeClass){
 buttonPressed.classList.add(activeClass)
 setTimeout(function(){
     buttonPressed.classList.remove(activeClass)
-}, 200);
+}, 120);
 }
