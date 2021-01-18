@@ -56,6 +56,7 @@ switch ( true ){
         }
 
         display.innerText += buttonPressed.innerText
+        
     break;
 
     case buttonPressed.classList.contains('dot-btn'):
@@ -73,15 +74,18 @@ switch ( true ){
     break;
     
     case buttonPressed.classList.contains('calc-btn'):
+        
         activeClass = 'calc-active';
         displayReset = true;
         enableDotButton(dotButton);
-    
-            if (operator === '') operator = buttonPressed.innerText
-            
+
+        if (operator === '') operator = buttonPressed.innerText
+ 
+        
             calcArray.push(parseFloat(display.innerText));
             display.innerText = operate(operator)
             operator = buttonPressed.innerText
+        
             
     break;
     
@@ -96,6 +100,7 @@ switch ( true ){
             display.innerText = operate(operator)
             displayReset = true;
             operator = ''
+            calcArray.length = 0;
         }
     break;
 
