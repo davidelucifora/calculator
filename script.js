@@ -60,7 +60,7 @@ switch ( true ){
         else {
             calcArray.push(parseFloat(display.innerText))
             display.innerText = operate(operator)
-            displayReset === true;
+            displayReset = true;
             operator = ''
         }
     break;
@@ -154,4 +154,8 @@ function enableDotButton(dotButton){
     dotButton.disable = false;
 }
 
-//
+//Add Keyboard Support
+document.addEventListener('keydown', keyInput)
+function keyInput(e){
+            document.querySelector(`[data-key="${e.key}-key"]`).click()
+    }
