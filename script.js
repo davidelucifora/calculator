@@ -1,10 +1,12 @@
+//Variables
+
 const display = document.getElementById('calc-display');
 let displayReset = true;
 display.innerText = '0'; 
 const calcArray = []
 const dotButton = document.querySelector('.dot-btn')
 const buttons = document.querySelectorAll('.grid-btn');
-let operator
+let operator = ''
 let easterEgg = document.createElement('img')
 easterEgg.setAttribute('src', 'marvinImg.png')
 let eggDiv = document.createElement('div')
@@ -17,13 +19,12 @@ contentDiv.appendChild(eggDiv)
 eggDiv.appendChild(easterEgg)
 
 //Listen for Click on Buttons
-buttons.forEach(btn => {
-    btn.addEventListener('click', takeInput)
-}
-);
+buttons.forEach(btn => btn.addEventListener('click', takeInput));
+
 
 //Add Keyboard Support
 document.addEventListener('keydown', keyInput)
+
 function keyInput(e){
     if (e.key === '/') e.preventDefault()
     if (e.key === 'Backspace' && display.innerText != '0') {
@@ -31,8 +32,8 @@ function keyInput(e){
             display.innerText = 0
             displayReset = true;}
         else{
-        display.innerText = display.innerText.toString()
-        .substring(0, display.innerText.length-1)
+            display.innerText = display.innerText.toString()
+                .substring(0, display.innerText.length-1)
     }   
     }
     
@@ -41,15 +42,17 @@ function keyInput(e){
 
 //Takes Input from buttons and updates the display
 function takeInput(e){   
+
 const buttonPressed = e.target;
 let activeClass;
 
 switch ( true ){
+
     case buttonPressed.classList.contains('num-btn'):
         activeClass = 'num-active'
         if (displayReset) {
-            display.innerText = '';
-            displayReset = false
+                display.innerText = '';
+                displayReset = false
         }
 
         display.innerText += buttonPressed.innerText
@@ -70,20 +73,30 @@ switch ( true ){
     break;
     
     case buttonPressed.classList.contains('calc-btn'):
-        activeClass = 'calc-active'   
+        activeClass = 'calc-active';
         displayReset = true;
-
-        if (!calcArray.length){
-            operator = buttonPressed.innerText
-            calcArray.push(parseFloat(display.innerText))
-            enableDotButton(dotButton)
-            displayReset === true;
-        }
-        else {
-            operator === '' ? operator = buttonPressed.innerText : ''
+        enableDotButton(dotButton);
+    
+            if (operator === '') operator = buttonPressed.innerText
+            
+            calcArray.push(parseFloat(display.innerText));
             display.innerText = operate(operator)
             operator = buttonPressed.innerText
-        }
+            
+        // if (!calcArray.length){
+            
+        //     operator = buttonPressed.innerText;
+        //     calcArray.push(parseFloat(display.innerText));
+        //     displayReset = true;
+        // }
+        // else {
+
+        //     operator = buttonPressed.innerText;
+        //     console.log(calcArray)
+            
+        // }
+
+
     break;
     
     case buttonPressed.classList.contains('equal-btn'):
@@ -115,7 +128,8 @@ switch ( true ){
 
 //Main Operator
 function operate(operator){
-    let result 
+
+    let result = 0
     switch (operator) {
         case '+':
             result = sum(calcArray);
@@ -136,6 +150,7 @@ function operate(operator){
             if (calcArray.includes(0)) {
                 displayReset = true;
                 return 'Noope!'}
+            
             result = divide(calcArray)
             calcArray.length = 0
             calcArray.push(result)
@@ -144,21 +159,22 @@ function operate(operator){
             result = percentage(calcArray);
             calcArray.length = 0
             calcArray.push(result)
-             break;
+            break;
         case '+/-':
             result = negative(calcArray);
             calcArray.length = 0
             calcArray.push(result)
             break;
-            
     }
-    if (result % 1 != 0) result = result.toFixed(2)
+
+    if (result % 1 != 0) result = result.toFixed(2);
     if (result === 42) {
         eggDiv.style.display = 'flex'
         setTimeout(function(){
             eggDiv.style.display = 'none';
         },300)
     }
+            
     return result;
 
 }
