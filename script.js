@@ -12,7 +12,6 @@ buttons.forEach(btn => {
 }
 );
 
-
 //Add Keyboard Support
 document.addEventListener('keydown', keyInput)
 function keyInput(e){
@@ -30,17 +29,10 @@ function keyInput(e){
             document.querySelector(`[data-key="${e.key}-key"]`).click()
     }
 
-
-
 //Takes Input from buttons and updates the display
 function takeInput(e){   
 const buttonPressed = e.target;
 let activeClass;
-
-// buttonPressed.classList.add('delete-active')
-// setTimeout(function(){
-//     buttonPressed.classList.remove('delete-active')
-// }, 200);
 
 switch ( true ){
     case buttonPressed.classList.contains('num-btn'):
