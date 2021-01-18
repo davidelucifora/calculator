@@ -5,6 +5,16 @@ const calcArray = []
 const dotButton = document.querySelector('.dot-btn')
 const buttons = document.querySelectorAll('.grid-btn');
 let operator
+let easterEgg = document.createElement('img')
+easterEgg.setAttribute('src', 'marvinImg.png')
+let eggDiv = document.createElement('div')
+eggDiv.id = 'easterEgg'
+eggDiv.style.display = 'none';
+eggDiv.style.width = '500px';
+eggDiv.style.height = '500px';
+let contentDiv = document.getElementById('main-content')
+contentDiv.appendChild(eggDiv)
+eggDiv.appendChild(easterEgg)
 
 //Listen for Click on Buttons
 buttons.forEach(btn => {
@@ -144,12 +154,9 @@ function operate(operator){
     }
     if (result % 1 != 0) result = result.toFixed(2)
     if (result === 42) {
-        let easterEgg = document.createElement('div')
-        let contentDiv = document.getElementById('main-content')
-        easterEgg.classList.add('easter-egg')
-        contentDiv.appendChild(easterEgg)
+        eggDiv.style.display = 'flex'
         setTimeout(function(){
-            contentDiv.removeChild(easterEgg)
+            eggDiv.style.display = 'none';
         },300)
     }
     return result;
