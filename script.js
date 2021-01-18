@@ -83,20 +83,6 @@ switch ( true ){
             display.innerText = operate(operator)
             operator = buttonPressed.innerText
             
-        // if (!calcArray.length){
-            
-        //     operator = buttonPressed.innerText;
-        //     calcArray.push(parseFloat(display.innerText));
-        //     displayReset = true;
-        // }
-        // else {
-
-        //     operator = buttonPressed.innerText;
-        //     console.log(calcArray)
-            
-        // }
-
-
     break;
     
     case buttonPressed.classList.contains('equal-btn'):
